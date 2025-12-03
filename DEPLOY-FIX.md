@@ -11,52 +11,54 @@ Failed: error occurred while running deploy command
 ## Root Causes
 
 1. **Node version**: Cloudflare Pages is using Node 18 instead of 20
-2. **Deploy command**: There's a deploy command set to `npx wrangler deploy` which:
-   - Requires Node 20+
-   - Is NOT needed for static export (Cloudflare Pages auto-deploys `.next/out`)
+2. **Deploy command**: `npx wrangler deploy` requires Node 20+
 
-## Solution
+## Solution: Set Node Version to 20 (REQUIRED)
 
-### Step 1: Remove Deploy Command (REQUIRED)
+Since the deploy command cannot be removed, we need to ensure Node 20 is used.
+
+### Step 1: Set Node Version to 20
 
 1. Go to Cloudflare Dashboard → Pages → Your Project
 2. Click **Settings** → **Builds & deployments**
 3. Click **Edit configuration**
-4. Find **"Deploy command"** or **"Deploy command"** field
-5. **DELETE** the deploy command (leave it empty)
-6. Or set it to: (empty/nothing)
-7. **Save**
+4. Find **"Node version"** field
+5. Set it to: `20` or `20.19.2`
+6. **Save**
 
-**Why?** For static export, Cloudflare Pages automatically deploys the `.next/out` directory. No deploy command is needed.
-
-### Step 2: Set Node Version to 20 (REQUIRED)
-
-1. In the same **Build configuration** page
-2. Find **"Node version"** field
-3. Set it to: `20` or `20.19.2`
-4. **Save**
-
-### Step 3: Verify Build Output Directory
+### Step 2: Verify Build Command
 
 Make sure:
-- **Build output directory**: `.next/out`
 - **Build command**: `npm run build`
-- **Deploy command**: (empty/blank)
+- **Build output directory**: `.next/out`
+- **Node version**: `20` or `20.19.2` ⚠️ **CRITICAL**
 
-### Step 4: Clear Cache and Redeploy
+### Step 3: Clear Cache and Redeploy
 
 1. Clear build cache (Settings → Builds & deployments → Clear cache)
 2. Trigger a new deployment
 
+## Alternative: Use Different Deploy Command
+
+If setting Node version doesn't work, try changing the deploy command to:
+
+**Option 1:** Leave it as `npx wrangler deploy` but ensure Node 20 is set
+
+**Option 2:** Try: `echo "Deploying static files..."` (if allowed)
+
+**Option 3:** Use: `ls -la .next/out` (just verify output exists)
+
+But the best solution is to **set Node version to 20** so wrangler can run.
+
 ## What Should Happen
 
-After fixing:
+After setting Node to 20:
 
 ✅ Build uses Node 20  
 ✅ Build completes successfully  
-✅ No deploy command runs  
-✅ Cloudflare Pages automatically deploys `.next/out`  
-✅ Site goes live  
+✅ Deploy command (`npx wrangler deploy`) runs with Node 20  
+✅ Wrangler works (requires Node 20+)  
+✅ Site deploys successfully  
 
 ## Current Configuration Files
 
@@ -64,5 +66,13 @@ After fixing:
 - ✅ `.node-version` → `20.19.2`
 - ✅ `package.json` engines → `>=20.0.0`
 
-But Cloudflare Pages dashboard settings override these, so you MUST update the dashboard.
+**But Cloudflare Pages dashboard settings override these, so you MUST set Node version to 20 in the dashboard.**
 
+## Why This Happens
+
+Cloudflare Pages may:
+- Auto-detect Node 18 from framework preset
+- Cache the Node version setting
+- Default to Node 18 for Next.js projects
+
+**The Node version MUST be explicitly set to 20 in the Cloudflare Pages dashboard.**
