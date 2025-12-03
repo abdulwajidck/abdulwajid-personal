@@ -24,13 +24,13 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
    - **Build output directory**: `.next/out`
    - **Root directory**: `/` (leave empty)
    - **Node version**: `20` or `20.19.2` ⚠️ **CRITICAL - REQUIRED!**
-   - **Deploy command**: Leave as `npx wrangler deploy` (if it can't be removed)
+   - **Deploy command**: `npx wrangler deploy` (required - cannot be empty)
    - **Package manager**: `npm` (if option available)
    
    **IMPORTANT:**
    - If you see `yarn run build` in the build command field, DELETE IT and type `npm run build` manually!
    - **Node version MUST be set to 20** - Wrangler (deploy command) requires Node 20+
-   - If deploy command can't be removed, ensure Node 20 is set so wrangler works
+   - Deploy command cannot be empty, so ensure Node 20 is set so wrangler works
 
 4. **Environment Variables**
    - None required! Everything is static.
