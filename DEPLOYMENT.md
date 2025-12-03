@@ -16,13 +16,17 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
    - Connect your GitHub repository: `abdulwajidck/abdulwajid-personal`
    - Authorize Cloudflare to access your repo
 
-3. **Configure Build Settings**
+3. **Configure Build Settings** ⚠️ **CRITICAL STEP**
    - **Framework preset**: `Next.js (Static HTML Export)` or `None`
-   - **Build command**: `npm run build` (IMPORTANT: Use npm, not yarn!)
+   - **Build command**: `npm run build` 
+     - ⚠️ **MUST BE**: `npm run build` (NOT `yarn run build`)
+     - ⚠️ **DOUBLE CHECK**: Make sure it says `npm`, not `yarn`
    - **Build output directory**: `.next/out`
    - **Root directory**: `/` (leave empty)
    - **Node version**: `18` (set explicitly)
    - **Package manager**: `npm` (if option available)
+   
+   **If you see `yarn run build` in the build command field, DELETE IT and type `npm run build` manually!**
 
 4. **Environment Variables**
    - None required! Everything is static.
