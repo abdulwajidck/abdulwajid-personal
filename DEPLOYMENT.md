@@ -23,7 +23,7 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
      - ⚠️ **DOUBLE CHECK**: Make sure it says `npm`, not `yarn`
    - **Build output directory**: `.next/out`
    - **Root directory**: `/` (leave empty)
-   - **Node version**: `18` (set explicitly)
+   - **Node version**: `20` (set explicitly)
    - **Package manager**: `npm` (if option available)
    
    **If you see `yarn run build` in the build command field, DELETE IT and type `npm run build` manually!**
@@ -87,7 +87,7 @@ Then commit and push - Cloudflare Pages will automatically rebuild!
 ## Troubleshooting
 
 ### Build Fails
-- Check Node.js version (use 18 or 20)
+- Check Node.js version (use 20 or higher)
 - Ensure all dependencies are in `package.json`
 - Check build logs in Cloudflare dashboard
 

@@ -29,7 +29,7 @@ Cloudflare Pages is **STILL** trying to run `yarn run build` instead of `npm run
 - ✅ **Build command**: `npm run build`
 - ✅ **Build output directory**: `.next/out`
 - ✅ **Root directory**: `/` (empty)
-- ✅ **Node version**: `18`
+- ✅ **Node version**: `20`
 
 ### Step 5: Save and Redeploy
 1. Click **Save** or **Save and Deploy**

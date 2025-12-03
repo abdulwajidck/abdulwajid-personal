@@ -28,7 +28,7 @@ Cloudflare Pages is still trying to run `yarn run build` instead of `npm run bui
 4. **Verify Other Settings**
    - **Build output directory**: `.next/out`
    - **Root directory**: `/` (leave empty)
-   - **Node version**: `18` (should auto-detect from `.nvmrc`)
+   - **Node version**: `20` (should auto-detect from `.nvmrc`)
    - **Framework preset**: `Next.js (Static HTML Export)` or `None`
 
 5. **Save and Redeploy**

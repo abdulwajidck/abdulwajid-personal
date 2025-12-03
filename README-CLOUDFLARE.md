@@ -34,7 +34,7 @@ Make sure these are correct:
 - ✅ **Build command**: `npm run build` (NOT `yarn run build`)
 - ✅ **Build output directory**: `.next/out`
 - ✅ **Root directory**: `/` (empty or root)
-- ✅ **Node version**: `18` (should auto-detect)
+- ✅ **Node version**: `20` (should auto-detect)
 
 ### 6. Save and Deploy
 - Click **"Save"** button
