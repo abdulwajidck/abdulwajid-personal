@@ -14,7 +14,8 @@
     "build:static": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "echo 'Using npm package manager'"
+    "postinstall": "echo 'Using npm package manager'",
+    "prebuild": "echo 'Building with npm...'"
   },
   "dependencies": {
     "next": "15.4.7",
