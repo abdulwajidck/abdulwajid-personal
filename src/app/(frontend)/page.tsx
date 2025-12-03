@@ -4,7 +4,7 @@ import { Stakque } from '@/components/Stakque'
 import { Metrics } from '@/components/Metrics'
 import { Philosophy } from '@/components/Philosophy'
 import { Contact } from '@/components/Contact'
-import { getSiteSettings } from '@/lib/strapi'
+import { getSiteSettings } from '@/lib/data'
 
 export default async function HomePage() {
   const settings = await getSiteSettings()

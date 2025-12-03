@@ -40,28 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Strapi
-strapi-backend/.tmp/
-strapi-backend/.cache/
-strapi-backend/build/
-strapi-backend/dist/
-strapi-backend/node_modules/
-strapi-backend/.env
-strapi-backend/.env.local
-strapi-backend/.env.production
-strapi-backend/uploads/
-
-# Django/Wagtail (old backend - can be removed later)
-backend/venv/
-backend/__pycache__/
-backend/*.pyc
-backend/*.pyo
-backend/*.pyd
-backend/.Python
-backend/db.sqlite3
-backend/.env
-backend/staticfiles/
-backend/media/
+# Backend removed - fully static now
 
 # IDE
 .vscode/

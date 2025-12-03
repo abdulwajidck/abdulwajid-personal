@@ -1,32 +1,27 @@
-import { getStrapiPage } from '@/lib/strapi'
+import { getBlogPost } from '@/lib/data'
 import styles from './post.module.css'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await getStrapiPage(slug)
+  const post = await getBlogPost(slug)
   
   if (!post) return {}
 
   return {
-    title: `${post.attributes.title} - Abdul Wajid CK`,
-    description: post.attributes.intro,
+    title: `${post.title} - Abdul Wajid CK`,
+    description: post.intro,
   }
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = await getStrapiPage(slug)
+  const post = await getBlogPost(slug)
 
   if (!post) {
     notFound()
   }
-
-  const feedImage = post.attributes?.feed_image?.data
-  const imageUrl = feedImage 
-    ? `${process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'}${feedImage.attributes?.url}`
-    : null
 
   return (
     <main className={styles.container}>
@@ -39,29 +34,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <div className={styles.meta}>
             <span className={styles.category}>Article</span>
             <span className={styles.date}>
-              {new Date(post.attributes.date).toLocaleDateString('en-US', {
+              {new Date(post.date).toLocaleDateString('en-US', {
                 month: 'long',
                 day: 'numeric',
                 year: 'numeric'
               })}
             </span>
           </div>
-          <h1 className={styles.title}>{post.attributes.title}</h1>
-          <p className={styles.intro}>{post.attributes.intro}</p>
+          <h1 className={styles.title}>{post.title}</h1>
+          <p className={styles.intro}>{post.intro}</p>
         </header>
 
-        {imageUrl && (
+        {post.imageUrl && (
           <div className={styles.featuredImage}>
             <img 
-              src={imageUrl} 
-              alt={post.attributes.title} 
+              src={post.imageUrl} 
+              alt={post.title} 
             />
           </div>
         )}
 
         <div className={styles.content}>
-          {post.attributes.body && (
-            <div dangerouslySetInnerHTML={{ __html: post.attributes.body }} />
+          {post.body && (
+            <div dangerouslySetInnerHTML={{ __html: post.body }} />
           )}
         </div>
       </article>

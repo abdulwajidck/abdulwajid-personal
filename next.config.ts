@@ -1,29 +1,21 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  // Static export for Cloudflare Pages
+  output: 'export',
+  
   images: {
+    unoptimized: true, // Required for static export
     remotePatterns: [
       {
         protocol: 'https',
         hostname: '**',
       },
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
-      },
     ],
   },
-  env: {
-    NEXT_PUBLIC_STRAPI_URL: process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337',
-  },
-  // Cloudflare Pages compatibility
-  // Uncomment if using static export:
-  // output: 'export',
-  // Uncomment if using Cloudflare adapter:
-  // experimental: {
-  //   runtime: 'edge',
-  // },
+  
+  // No trailing slash for better Cloudflare compatibility
+  trailingSlash: false,
 }
 
 export default nextConfig
