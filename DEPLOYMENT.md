@@ -17,11 +17,12 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
    - Authorize Cloudflare to access your repo
 
 3. **Configure Build Settings**
-   - **Framework preset**: `Next.js (Static HTML Export)`
-   - **Build command**: `npm run build`
+   - **Framework preset**: `Next.js (Static HTML Export)` or `None`
+   - **Build command**: `npm run build` (IMPORTANT: Use npm, not yarn!)
    - **Build output directory**: `.next/out`
    - **Root directory**: `/` (leave empty)
-   - **Node version**: `18` or `20`
+   - **Node version**: `18` (set explicitly)
+   - **Package manager**: `npm` (if option available)
 
 4. **Environment Variables**
    - None required! Everything is static.
