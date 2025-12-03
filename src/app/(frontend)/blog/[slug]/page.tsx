@@ -1,7 +1,15 @@
-import { getBlogPost } from '@/lib/data'
+import { getBlogPost, getBlogPosts } from '@/lib/data'
 import styles from './post.module.css'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+
+// Required for static export with dynamic routes
+export async function generateStaticParams() {
+  const posts = await getBlogPosts()
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
