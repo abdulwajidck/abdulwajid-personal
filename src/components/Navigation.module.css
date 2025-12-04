@@ -24,6 +24,19 @@
   color: var(--text-primary);
   text-decoration: none;
   letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.1rem;
+  }
 }
 
 .links {

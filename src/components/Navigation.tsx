@@ -4,7 +4,7 @@ import styles from './Navigation.module.css'
 export function Navigation() {
   return (
     <nav className={styles.nav}>
-      <Link href="/" className={styles.logo}>AWC</Link>
+      <Link href="/" className={styles.logo}>Abdul Wajid CK</Link>
       <ul className={styles.links}>
         <li><Link href="/#about">About</Link></li>
         <li><Link href="/#stakque">Stakque</Link></li>
