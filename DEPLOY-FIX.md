@@ -4,36 +4,34 @@
 
 Build succeeds but deploy fails with:
 ```
-Wrangler requires at least Node.js v20.0.0. You are using v18.20.8.
-Failed: error occurred while running deploy command
+✘ [ERROR] Missing entry-point to Worker script or to assets directory
 ```
 
 ## Root Cause
 
-**Node version is 18, but wrangler (deploy command) requires Node 20+**
+The deploy command `npx wrangler deploy` doesn't know what to deploy. For static sites, we need to specify the assets directory.
 
-The deploy command `npx wrangler deploy` cannot be removed or left empty - it's required by Cloudflare Pages.
+## Solution: Update Deploy Command
 
-## Solution: Set Node Version to 20 (REQUIRED)
+The deploy command needs to point to the static output directory.
 
-Since the deploy command cannot be empty, we must ensure Node 20 is used so wrangler can run.
-
-### Step 1: Set Node Version to 20
+### Step 1: Update Deploy Command
 
 1. Go to Cloudflare Dashboard → Pages → Your Project
 2. Click **Settings** → **Builds & deployments**
 3. Click **Edit configuration**
-4. Find **"Node version"** field
-5. Set it to: `20` or `20.19.2`
-6. **Save**
+4. Find **"Deploy command"** field
+5. Change from: `npx wrangler deploy`
+6. Change to: `npx wrangler pages deploy .next/out`
+7. **Save**
 
 ### Step 2: Verify Settings
 
 Make sure:
 - **Build command**: `npm run build`
 - **Build output directory**: `.next/out`
-- **Node version**: `20` or `20.19.2` ⚠️ **CRITICAL**
-- **Deploy command**: `npx wrangler deploy` (keep as is - can't be empty)
+- **Node version**: `20` or `20.19.2` ✅ (already set!)
+- **Deploy command**: `npx wrangler pages deploy .next/out` ⚠️ **UPDATED**
 
 ### Step 3: Clear Cache and Redeploy
 
@@ -42,34 +40,19 @@ Make sure:
 
 ## What Should Happen
 
-After setting Node to 20:
+After updating the deploy command:
 
 ✅ Build uses Node 20  
 ✅ Build completes successfully  
-✅ Deploy command (`npx wrangler deploy`) runs with Node 20  
-✅ Wrangler works (requires Node 20+)  
-✅ Site deploys successfully  
+✅ Deploy command (`npx wrangler pages deploy .next/out`) deploys static files  
+✅ Site goes live  
 
 ## Why This Works
 
-- **Build phase**: Uses Node 20, builds successfully
-- **Deploy phase**: Uses Node 20, wrangler can run (requires Node 20+)
-- **Result**: Both build and deploy succeed
+- `npx wrangler pages deploy .next/out` tells wrangler to deploy the static files from `.next/out`
+- This is the correct command for deploying static sites to Cloudflare Pages
+- The build output directory (`.next/out`) contains all the static HTML, CSS, and JS files
 
-## Current Configuration Files
+## Alternative: Create wrangler.toml
 
-- ✅ `.nvmrc` → `20.19.2`
-- ✅ `.node-version` → `20.19.2`
-- ✅ `package.json` engines → `>=20.0.0`
-
-**But Cloudflare Pages dashboard settings override these, so you MUST set Node version to 20 in the dashboard.**
-
-## Alternative (If Node 20 Setting Doesn't Work)
-
-If setting Node version in dashboard doesn't work, try changing the deploy command to:
-
-```
-echo "Build output ready at .next/out"
-```
-
-But this may not work - Cloudflare Pages likely expects wrangler. The best solution is to **set Node version to 20**.
+If the deploy command update doesn't work, we can create a `wrangler.toml` file, but updating the deploy command is simpler.
