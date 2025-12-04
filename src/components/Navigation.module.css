@@ -73,6 +73,10 @@
   width: 100%;
 }
 
+.mobileBlogLink {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .nav {
     padding: 1rem 1.5rem;
@@ -80,5 +84,34 @@
   
   .links {
     display: none;
+  }
+
+  .mobileBlogLink {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+
+  .mobileBlogLink::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+
+  .mobileBlogLink:hover {
+    color: var(--text-primary);
+  }
+
+  .mobileBlogLink:hover::after {
+    width: 100%;
   }
 }
