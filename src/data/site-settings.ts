@@ -43,7 +43,7 @@ export const siteSettings = {
 
   // Contact
   email: 'hello@abdulwajidck.com',
-  phone: '+91 98460 12345',
+  phone: '+91 90610 85417',
   linkedinUrl: 'https://linkedin.com/in/abdulwajidck',
   instagramUrl: 'https://instagram.com/wajistakque',
   stakqueUrl: 'https://stakque.com',
