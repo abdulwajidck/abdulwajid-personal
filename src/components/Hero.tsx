@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import styles from './Hero.module.css'
+import { Graph3D } from './Graph3D'
 
 interface HeroProps {
   settings?: {
@@ -26,6 +29,9 @@ export function Hero({ settings }: HeroProps) {
 
   return (
     <section className={styles.hero}>
+      <div className={styles.graphBackground}>
+        <Graph3D />
+      </div>
       <div className={styles.label}>
         <span className={styles.dot} />
         {heroLabel}
