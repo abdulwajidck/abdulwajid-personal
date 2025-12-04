@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
     title: 'Digital Strategy for Education: How to Increase Enrollment by 300%',
     slug: 'digital-strategy-for-education',
     date: '2024-02-20',
-    intro: 'Education institutions face unique marketing challenges in today's digital landscape. Discover how strategic digital marketing can increase enrollment by 300%, reduce acquisition costs by 40%, and build sustainable growth systems that work year after year.',
+    intro: 'Education institutions face unique marketing challenges in today\'s digital landscape. Discover how strategic digital marketing can increase enrollment by 300%, reduce acquisition costs by 40%, and build sustainable growth systems that work year after year.',
     body: `
       <h2>The Education Marketing Challenge</h2>
       <p>Education institutions face unique challenges in marketing. They need to reach the right audience—both students and parents—build trust, demonstrate value, and compete in an increasingly crowded digital space. Traditional marketing methods often fall short because they don't address the specific decision-making process that families go through when choosing an educational institution.</p>
