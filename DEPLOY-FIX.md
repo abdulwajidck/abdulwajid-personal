@@ -5,34 +5,44 @@
 Build succeeds but deploy fails with:
 ```
 ✘ [ERROR] Must specify a project name.
+▲ [WARNING] Pages now has wrangler.toml support.
+We detected a configuration file but it is missing the "pages_build_output_dir" field
 ```
 
 ## Root Cause
 
-The deploy command `npx wrangler pages deploy .next/out` needs a project name to deploy to.
+The `wrangler.toml` file is missing the `pages_build_output_dir` field required by Cloudflare Pages.
 
-## Solution: Add Project Name to Deploy Command
+## Solution: Updated wrangler.toml
 
-The deploy command needs to include the `--project-name` parameter.
+I've updated `wrangler.toml` to include:
+- `pages_build_output_dir = ".next/out"` - Tells wrangler where the static files are
+- `name = "abdul-wajid-personal"` - Project name
 
-### Step 1: Update Deploy Command
+### Option 1: Use wrangler.toml (Recommended)
+
+With the updated `wrangler.toml` file, you can use:
+
+**Deploy command**: `npx wrangler pages deploy .next/out`
+
+The `wrangler.toml` file will provide both the project name and output directory.
+
+### Option 2: Use Project Name in Command
+
+If `wrangler.toml` doesn't work, use:
+
+**Deploy command**: `npx wrangler pages deploy .next/out --project-name=abdul-wajid-personal`
+
+Replace `abdul-wajid-personal` with your actual Cloudflare Pages project name.
+
+### Step 1: Update Deploy Command (if needed)
 
 1. Go to Cloudflare Dashboard → Pages → Your Project
 2. Click **Settings** → **Builds & deployments**
 3. Click **Edit configuration**
 4. Find **"Deploy command"** field
-5. Change to: `npx wrangler pages deploy .next/out --project-name=abdul-wajid-personal`
+5. Use: `npx wrangler pages deploy .next/out`
 6. **Save**
-
-**Note:** Replace `abdul-wajid-personal` with your actual Cloudflare Pages project name if different.
-
-### Alternative: Use wrangler.toml
-
-I've created a `wrangler.toml` file that specifies the project name. You can also use:
-
-**Deploy command**: `npx wrangler pages deploy .next/out`
-
-The `wrangler.toml` file will provide the project name automatically.
 
 ### Step 2: Verify Settings
 
@@ -40,7 +50,7 @@ Make sure:
 - **Build command**: `npm run build`
 - **Build output directory**: `.next/out`
 - **Node version**: `20` or `20.19.2` ✅ (already set!)
-- **Deploy command**: `npx wrangler pages deploy .next/out --project-name=YOUR_PROJECT_NAME`
+- **Deploy command**: `npx wrangler pages deploy .next/out`
 
 ### Step 3: Clear Cache and Redeploy
 
@@ -49,15 +59,18 @@ Make sure:
 
 ## What Should Happen
 
-After updating the deploy command:
+After the fix:
 
 ✅ Build uses Node 20  
 ✅ Build completes successfully  
-✅ Deploy command includes project name  
+✅ `wrangler.toml` provides project name and output directory  
+✅ Deploy command works  
 ✅ Site deploys successfully  
 
-## Finding Your Project Name
+## Current Configuration
 
-1. Go to Cloudflare Dashboard → Pages
-2. Your project name is shown in the project list
-3. Use that exact name in the deploy command
+- ✅ `wrangler.toml` → Includes `pages_build_output_dir` and `name`
+- ✅ Build output directory: `.next/out`
+- ✅ Node version: 20.19.2
+
+The `wrangler.toml` file should now work correctly with Cloudflare Pages!
