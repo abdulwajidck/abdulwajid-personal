@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import '@/styles/globals.css'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
@@ -22,6 +23,7 @@ export default function FrontendLayout({
         <Navigation />
         {children}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   )

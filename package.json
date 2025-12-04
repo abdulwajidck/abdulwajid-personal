@@ -20,6 +20,7 @@
     "pages:build": "npm run build"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.3.1",
     "next": "15.5.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
