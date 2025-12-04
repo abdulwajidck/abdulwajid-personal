@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     id: '1',
     title: 'Welcome to E3 Marketing: A Framework That Transforms Growth',
     slug: 'welcome-to-e3-marketing',
-    date: '2024-01-15',
+    date: '2025-01-15',
     intro: 'Discover the E3 Marketing framework—a proven system that has generated ₹120Cr+ in revenue across industries. While we\'ve achieved exceptional dominance in education marketing, this framework drives remarkable results for e-commerce, SaaS, healthcare, technology, and more. Learn how Embedded, Essential, and Engineered principles create sustainable, scalable growth.',
     body: `
       <h2>What is E3 Marketing?</h2>
@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
     id: '2',
     title: 'Dominating Multi-Industry Marketing: How E3 Drives Results Across Sectors',
     slug: 'multi-industry-marketing-dominance',
-    date: '2024-02-20',
+    date: '2025-02-20',
     intro: 'While we\'ve achieved exceptional dominance in education marketing, the E3 framework delivers remarkable results across industries. Discover how we help e-commerce brands scale revenue, SaaS companies reduce CAC, healthcare providers expand reach, and technology firms build market presence.',
     body: `
       <h2>Beyond Education: Marketing Dominance Across Industries</h2>
@@ -101,7 +101,7 @@ export const blogPosts: BlogPost[] = [
     id: '3',
     title: 'Building Scalable Marketing Systems: The Foundation of Sustainable Growth',
     slug: 'building-scalable-marketing-systems',
-    date: '2024-03-10',
+    date: '2025-03-10',
     intro: 'Scalable marketing systems are the foundation of sustainable growth. Learn how to build automated, measurable, and optimized marketing processes that grow with your business—without proportional increases in cost or complexity.',
     body: `
       <h2>Why Systems Matter</h2>
