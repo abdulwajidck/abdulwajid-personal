@@ -98,6 +98,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  min-width: 0;
 }
 
 .statNumber {
@@ -105,6 +106,7 @@
   font-size: 2.5rem;
   font-style: italic;
   color: var(--accent);
+  line-height: 1.1;
 }
 
 .statLabel {
@@ -112,19 +114,49 @@
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  word-break: break-word;
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 6rem 1.5rem;
+    padding: 6rem 1.5rem 4rem;
   }
 
   .stats {
     flex-wrap: wrap;
     gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+  }
+
+  .stat {
+    flex: 1 1 calc(50% - 1rem);
+    min-width: 0;
+  }
+
+  .statNumber {
+    font-size: 2rem;
+  }
+
+  .statLabel {
+    font-size: 0.75rem;
   }
 
   .cta {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    gap: 1.5rem;
+  }
+
+  .stat {
+    flex: 1 1 100%;
+  }
+
+  .statNumber {
+    font-size: 1.75rem;
   }
 }
