@@ -4,7 +4,7 @@ export const siteSettings = {
   heroLabel: "Digital Architect",
   heroName: "Abdul Wajid CK",
   heroTagline: "Architect of E3 Marketing",
-  heroDescription: "Transforming how businesses scale, with remarkable impact on education institutions.",
+  heroDescription: "Dominating digital marketing across industries. From education to e-commerce, healthcare to SaaS—we build marketing systems that scale.",
   stats: [
     { value: "₹120Cr+", label: "Revenue Generated" },
     { value: "200+", label: "Clients Served" },
@@ -13,21 +13,24 @@ export const siteSettings = {
   
   // About
   aboutParagraphs: [
-    { text: "I am a digital architect focused on building scalable marketing systems that drive measurable growth. With over 5 years of experience, I've helped education institutions and businesses generate ₹120Cr+ in revenue through strategic digital marketing." },
-    { text: "My approach combines deep technical expertise with strategic thinking, creating marketing systems that are embedded in your organization, essential to your growth, and engineered for scale.", isHighlighted: true },
-    { text: "Through Stakque, I work as an embedded partner with leadership teams to diagnose growth barriers and implement data-driven marketing systems that deliver lasting results." },
+    { text: "I am a digital architect focused on building scalable marketing systems that drive measurable growth. With over 5 years of experience, I've helped businesses across industries—from education to e-commerce, healthcare to technology—generate ₹120Cr+ in revenue through strategic digital marketing." },
+    { text: "While we've achieved exceptional dominance in education marketing, our E3 framework has proven equally powerful across diverse sectors. We don't just market—we embed, optimize, and scale marketing systems that become competitive advantages.", isHighlighted: true },
+    { text: "Through Stakque, I work as an embedded partner with leadership teams to diagnose growth barriers and implement data-driven marketing systems that deliver lasting results—regardless of industry." },
   ],
   tags: [
     { label: "Digital Strategy" },
     { label: "Performance Marketing" },
     { label: "Marketing Automation" },
     { label: "SEO & Growth" },
+    { label: "Brand Development" },
+    { label: "E-commerce Marketing" },
+    { label: "SaaS Growth" },
     { label: "Education Marketing" },
   ],
 
   // Stakque
   stakqueTitle: "Founder of Stakque",
-  stakqueDescription: "Stakque is India's strategic branding and digital marketing agency.",
+  stakqueDescription: "Stakque is India's strategic branding and digital marketing agency—dominant across performance marketing, SEO, brand development, and marketing automation. While we've built an unmatched reputation in education marketing, our E3 framework drives exceptional results across e-commerce, healthcare, SaaS, technology, and more.",
   services: [],
 
   // Metrics
@@ -36,6 +39,7 @@ export const siteSettings = {
     { value: "10M+", label: "Ad Impressions" },
     { value: "500k+", label: "Leads Generated" },
     { value: "200+", label: "Clients Served" },
+    { value: "15+", label: "Industries Dominated" },
   ],
 
   // Philosophy
