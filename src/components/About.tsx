@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import styles from './About.module.css'
 
 interface AboutProps {
@@ -35,7 +36,18 @@ export function About({ settings }: AboutProps) {
       </div>
       <div className={styles.grid}>
         <div className={styles.image}>
-          <div className={styles.placeholder}>W</div>
+          <Image
+            src="/abdul-wajid-photo.jpg"
+            alt="Abdul Wajid CK"
+            fill
+            className={styles.photo}
+            priority
+            onError={(e) => {
+              // Fallback if image doesn't exist
+              const target = e.target as HTMLImageElement
+              target.style.display = 'none'
+            }}
+          />
         </div>
         <div className={styles.content}>
           {paragraphs.map((para, index) => (
