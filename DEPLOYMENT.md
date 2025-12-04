@@ -24,7 +24,9 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
    - **Build output directory**: `.next/out`
    - **Root directory**: `/` (leave empty)
    - **Node version**: `20` or `20.19.2` ⚠️ **CRITICAL - REQUIRED!**
-   - **Deploy command**: `npx wrangler pages deploy .next/out` (deploys static files)
+   - **Deploy command**: `npx wrangler pages deploy .next/out --project-name=YOUR_PROJECT_NAME`
+     - Replace `YOUR_PROJECT_NAME` with your actual Cloudflare Pages project name
+     - Or use `npx wrangler pages deploy .next/out` if using `wrangler.toml` file
    - **Package manager**: `npm` (if option available)
    
    **IMPORTANT:**

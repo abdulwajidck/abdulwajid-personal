@@ -1,0 +1,6 @@
+name = "abdul-wajid-personal"
+compatibility_date = "2024-12-04"
+
+[env.production]
+name = "abdul-wajid-personal"
+
