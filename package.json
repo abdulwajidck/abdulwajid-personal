@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run copy-output",
+    "copy-output": "mkdir -p .next && cp -r out .next/out",
     "build:static": "next build",
     "start": "next start",
     "lint": "next lint",

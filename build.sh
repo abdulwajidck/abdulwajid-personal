@@ -18,6 +18,12 @@ echo "Running npm build..."
 npm run build
 
 echo "=========================================="
-echo "✅ Build complete!"
+echo "📦 Copying output to .next/out for Cloudflare..."
+echo "=========================================="
+mkdir -p .next
+cp -r out .next/out
+
+echo "=========================================="
+echo "✅ Build complete! Output in both out/ and .next/out/"
 echo "=========================================="
 
