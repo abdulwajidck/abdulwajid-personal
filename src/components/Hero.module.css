@@ -18,9 +18,10 @@
   text-transform: uppercase;
   letter-spacing: 0.15em;
   margin-bottom: 2rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.3s;
+  /* Remove initial opacity for faster LCP */
+  opacity: 1;
+  animation: fadeUp 0.5s ease forwards;
+  animation-delay: 0.05s;
 }
 
 .dot {
@@ -52,12 +53,13 @@
 
 .title span {
   display: block;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
+  /* Remove initial opacity for faster LCP - content visible immediately */
+  opacity: 1;
+  animation: fadeUp 0.6s ease forwards;
 }
 
-.title span:nth-child(1) { animation-delay: 0.4s; }
-.title span:nth-child(2) { animation-delay: 0.5s; }
+.title span:nth-child(1) { animation-delay: 0.1s; }
+.title span:nth-child(2) { animation-delay: 0.15s; }
 
 .title em {
   font-style: italic;
@@ -69,18 +71,20 @@
   font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.7;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.6s;
+  /* Remove initial opacity for faster LCP */
+  opacity: 1;
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: 0.2s;
 }
 
 .cta {
   display: flex;
   gap: 1.5rem;
   margin-top: 3rem;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.7s;
+  /* Remove initial opacity for faster LCP */
+  opacity: 1;
+  animation: fadeUp 0.5s ease forwards;
+  animation-delay: 0.25s;
 }
 
 .stats {
@@ -89,9 +93,10 @@
   margin-top: 5rem;
   padding-top: 3rem;
   border-top: 1px solid var(--border);
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards;
-  animation-delay: 0.8s;
+  /* Remove initial opacity for faster LCP */
+  opacity: 1;
+  animation: fadeUp 0.5s ease forwards;
+  animation-delay: 0.3s;
 }
 
 .stat {

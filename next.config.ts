@@ -16,6 +16,15 @@ const nextConfig: NextConfig = {
   
   // No trailing slash for better Cloudflare compatibility
   trailingSlash: false,
+  
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  
+  // Experimental optimizations for better LCP
+  experimental: {
+    optimizePackageImports: ['@vercel/speed-insights'],
+  },
 }
 
 export default nextConfig
