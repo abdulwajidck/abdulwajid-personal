@@ -23,7 +23,7 @@ export function Contact({ settings }: ContactProps) {
     <section className="section" id="contact">
       <div className="section-header">
         <div>
-          <div className="section-label">04 / Get In Touch</div>
+          <div className="section-label">06 / Get In Touch</div>
           <h2>
             Let's build something <em>remarkable</em> together
           </h2>
