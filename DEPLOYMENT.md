@@ -21,11 +21,12 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
    - **Build command**: `npm run build` 
      - ⚠️ **MUST BE**: `npm run build` (NOT `yarn run build`)
      - ⚠️ **DOUBLE CHECK**: Make sure it says `npm`, not `yarn`
-   - **Build output directory**: `.next/out`
+   - **Build output directory**: `out` ⚠️ **IMPORTANT: Use `out` NOT `.next/out`**
+     - Next.js static export creates files in `out/` directory
    - **Root directory**: `/` (leave empty)
    - **Node version**: `20` or `20.19.2` ⚠️ **CRITICAL - REQUIRED!**
    - **Deploy command**: `echo "Deployment handled by Cloudflare Pages"`
-     - Cloudflare Pages automatically deploys `.next/out` when build completes
+     - Cloudflare Pages automatically deploys `out/` when build completes
      - No need for wrangler - the build output directory setting handles deployment
      - This satisfies the "cannot be empty" requirement without authentication issues
    - **Package manager**: `npm` (if option available)
@@ -33,7 +34,7 @@ This project is now **100% static** and fully compatible with Cloudflare Pages. 
    **IMPORTANT:**
    - If you see `yarn run build` in the build command field, DELETE IT and type `npm run build` manually!
    - **Node version MUST be set to 20** - Wrangler requires Node 20+ ✅
-   - **Deploy command MUST be**: `npx wrangler pages deploy .next/out` - This deploys the static files
+   - **Build output directory MUST be**: `out` (NOT `.next/out`)
 
 4. **Environment Variables**
    - None required! Everything is static.
@@ -52,13 +53,13 @@ npm install -g wrangler
 npm run build
 
 # Deploy
-wrangler pages deploy .next/out --project-name=your-project-name
+wrangler pages deploy out --project-name=your-project-name
 ```
 
 ## Build Output
 
 After running `npm run build`, you'll find:
-- **Output directory**: `.next/out`
+- **Output directory**: `out/` (NOT `.next/out`)
 - **Format**: Static HTML, CSS, and JavaScript
 - **Size**: Optimized and minimal
 
@@ -107,9 +108,14 @@ Then commit and push - Cloudflare Pages will automatically rebuild!
 - Ensure `trailingSlash: false` in `next.config.ts`
 - Check that all routes are properly exported
 
+### Shows "Hello World" or Blank Page
+- ⚠️ **Check Build Output Directory**: Must be `out` (NOT `.next/out`)
+- Verify the build completed successfully
+- Check that `index.html` exists in the `out/` directory
+- Clear Cloudflare Pages cache and redeploy
+
 ## Support
 
 For issues, check:
 - [Cloudflare Pages Docs](https://developers.cloudflare.com/pages/)
 - [Next.js Static Export Docs](https://nextjs.org/docs/app/building-your-application/deploying/static-exports)
-
