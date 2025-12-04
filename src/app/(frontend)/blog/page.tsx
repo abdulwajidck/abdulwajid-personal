@@ -14,7 +14,7 @@ export default async function BlogPage() {
     <main className={styles.container}>
       <header className={styles.header}>
         <h1>Insights & Articles</h1>
-        <p>Thoughts on marketing, technology, and growth.</p>
+        <p className={styles.subtitle}>Strategic insights on E3 Marketing, digital strategy, education growth, and building scalable marketing systems.</p>
       </header>
 
       <div className={styles.grid}>

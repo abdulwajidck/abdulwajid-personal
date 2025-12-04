@@ -2,6 +2,8 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 8rem 2rem 4rem;
+  font-family: var(--sans, 'Satoshi', -apple-system, sans-serif);
+  color: var(--text-primary);
 }
 
 .backLink {
@@ -52,10 +54,20 @@
 }
 
 .title {
+  font-family: var(--serif, 'Instrument Serif', Georgia, serif);
   font-size: 3rem;
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: var(--text-primary);
+  font-weight: 400;
+}
+
+.intro {
+  font-family: var(--sans, 'Satoshi', -apple-system, sans-serif);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  font-weight: 400;
 }
 
 .excerpt {
@@ -80,21 +92,26 @@
 }
 
 .content {
+  font-family: var(--sans, 'Satoshi', -apple-system, sans-serif);
   font-size: 1.125rem;
   line-height: 1.8;
   color: var(--text-primary);
 }
 
 .content h2 {
+  font-family: var(--serif, 'Instrument Serif', Georgia, serif);
   font-size: 2rem;
   margin: 2.5rem 0 1rem;
   color: var(--text-primary);
+  font-weight: 400;
 }
 
 .content h3 {
+  font-family: var(--serif, 'Instrument Serif', Georgia, serif);
   font-size: 1.5rem;
   margin: 2rem 0 1rem;
   color: var(--text-primary);
+  font-weight: 400;
 }
 
 .content p {
