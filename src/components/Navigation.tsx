@@ -10,6 +10,7 @@ export function Navigation() {
         <li><Link href="/#stakque">Stakque</Link></li>
         <li><Link href="/#philosophy">Philosophy</Link></li>
         <li><Link href="/blog">Blog</Link></li>
+        <li><Link href="/resources">Resources</Link></li>
         <li><Link href="/#contact">Contact</Link></li>
       </ul>
       <Link href="/blog" className={styles.mobileBlogLink}>Blog</Link>
