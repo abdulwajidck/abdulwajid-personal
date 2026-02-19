@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABDUL WAJID CK — SHOCK THERAPY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Druk';
+            src: local('Impact'), local('Arial Black');
+            font-weight: 900;
+        }
+
+        :root {
+            --electric: #FFFF00;
+            --black: #000000;
+            --pink: #FF006E;
+            --white: #FFFFFF;
+            --gray: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.4;
+            overflow-x: hidden;
+            cursor: crosshair;
+        }
+
+        ::selection {
+            background: var(--pink);
+            color: var(--black);
+        }
+
+        /* SCROLLBAR */
+        ::-webkit-scrollbar {
+            width: 15px;
+            background: var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--electric);
+            border: 3px solid var(--black);
+        }
+
+        /* TYPOGRAPHY */
+        .druk {
+            font-family: 'Druk', 'Impact', 'Arial Black', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            line-height: 0.85;
+        }
+
+        .mono {
+            font-family: 'Space Mono', monospace;
+        }
+
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* UTILITIES */
+        .electric {
+            color: var(--electric);
+        }
+
+        .pink {
+            color: var(--pink);
+        }
+
+        .bg-electric {
+            background: var(--electric);
+            color: var(--black);
+        }
+
+        .bg-pink {
+            background: var(--pink);
+        }
+
+        .clip-text {
+            overflow: hidden;
+        }
+
+        /* GLITCH EFFECT */
+        .glitch {
+            position: relative;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glitch::before {
+            animation: glitch-1 0.3s infinite linear alternate-reverse;
+            color: var(--pink);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            animation: glitch-2 0.3s infinite linear alternate-reverse;
+            color: var(--electric);
+            z-index: -2;
+        }
+
+        @keyframes glitch-1 {
+            0%, 100% { clip-path: inset(0 0 95% 0); transform: translate(-2px, 0); }
+            20% { clip-path: inset(30% 0 50% 0); transform: translate(2px, 0); }
+            40% { clip-path: inset(80% 0 5% 0); transform: translate(-2px, 0); }
+            60% { clip-path: inset(10% 0 70% 0); transform: translate(2px, 0); }
+            80% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 0); }
+        }
+
+        @keyframes glitch-2 {
+            0%, 100% { clip-path: inset(95% 0 0 0); transform: translate(2px, 0); }
+            20% { clip-path: inset(50% 0 30% 0); transform: translate(-2px, 0); }
+            40% { clip-path: inset(5% 0 80% 0); transform: translate(2px, 0); }
+            60% { clip-path: inset(70% 0 10% 0); transform: translate(-2px, 0); }
+            80% { clip-path: inset(30% 0 50% 0); transform: translate(2px, 0); }
+        }
+
+        /* FLASHING WARNING */
+        @keyframes flash {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .flash {
+            animation: flash 0.8s infinite;
+        }
+
+        /* MARQUEE */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: var(--electric);
+            color: var(--black);
+            padding: 0.5rem 0;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* LAYOUT */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .full-bleed {
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            mix-blend-mode: difference;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .logo span {
+            color: var(--electric);
+        }
+
+        .menu-btn {
+            width: 40px;
+            height: 40px;
+            background: var(--electric);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s;
+        }
+
+        .menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 20px;
+            height: 3px;
+            background: var(--black);
+            transition: all 0.3s;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 0;
+        }
+
+        .hero-bg-text {
+            position: absolute;
+            font-size: clamp(8rem, 25vw, 20rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-bg-text.top {
+            top: 10%;
+            left: -5%;
+        }
+
+        .hero-bg-text.bottom {
+            bottom: 5%;
+            right: -10%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--pink);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: var(--pink);
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 12vw, 10rem);
+            margin-bottom: 2rem;
+        }
+
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .word {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: slam-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero-title .line:nth-child(1) .word { animation-delay: 0.2s; }
+        .hero-title .line:nth-child(2) .word { animation-delay: 0.4s; }
+        .hero-title .line:nth-child(3) .word { animation-delay: 0.6s; }
+
+        @keyframes slam-in {
+            to { transform: translateY(0); }
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: snap-in 0.6s 1s forwards;
+        }
+
+        @keyframes snap-in {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--electric);
+            color: var(--black);
+            padding: 1.5rem 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            font-size: 1rem;
+            transform: scale(0);
+            animation: bounce-in 0.6s 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: var(--pink);
+            transform: scale(1.05);
+        }
+
+        @keyframes bounce-in {
+            to { transform: scale(1); }
+        }
+
+        /* WARNING STRIP */
+        .warning-strip {
+            background: var(--pink);
+            color: var(--black);
+            padding: 1rem 0;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            text-align: center;
+            position: relative;
+        }
+
+        .warning-strip::before,
+        .warning-strip::after {
+            content: '⚠ ⚠ ⚠';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .warning-strip::before { left: 2rem; }
+        .warning-strip::after { right: 2rem; }
+
+        /* SECTIONS */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--pink);
+            margin-bottom: 1rem;
+            display: inline-block;
+            border: 2px solid var(--pink);
+            padding: 0.5rem 1rem;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            margin-bottom: 2rem;
+            line-height: 0.9;
+        }
+
+        /* THE PROBLEM */
+        .problem {
+            background: var(--electric);
+            color: var(--black);
+        }
+
+        .problem .section-label {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .accusation {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin: 3rem 0;
+        }
+
+        .accusation .highlight {
+            background: var(--black);
+            color: var(--electric);
+            padding: 0 1rem;
+            display: inline;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .problem-card {
+            border: 4px solid var(--black);
+            padding: 2rem;
+            background: var(--black);
+            color: var(--white);
+            transform: rotate(-2deg);
+            transition: all 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: rotate(0) scale(1.02);
+            background: var(--pink);
+            color: var(--black);
+        }
+
+        .problem-card:nth-child(2) {
+            transform: rotate(2deg);
+        }
+
+        .problem-card:nth-child(2):hover {
+            transform: rotate(0) scale(1.02);
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* E3 METHOD */
+        .method {
+            background: var(--black);
+            padding: 4rem 0;
+        }
+
+        .method-panels {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .method-panel {
+            background: #2a2a2a;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-left: 10px solid var(--electric);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transform: translateX(0);
+            opacity: 1;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .method-panel:nth-child(2) {
+            border-left-color: var(--pink);
+        }
+
+        .method-panel:nth-child(3) {
+            border-left-color: var(--electric);
+        }
+
+        .method-number {
+            position: absolute;
+            top: 1rem;
+            right: 2rem;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.05);
+            line-height: 1;
+        }
+
+        .method-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .method-desc {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        /* WAR STORIES */
+        .war-stories {
+            background: var(--gray);
+        }
+
+        .story-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .story-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: start;
+            padding: 3rem;
+            border: 2px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+
+        .story-item:hover {
+            border-color: var(--electric);
+            background: rgba(255,255,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .story-item {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .story-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .story-client {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--pink);
+        }
+
+        .story-industry {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .story-result {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--electric);
+            line-height: 1;
+        }
+
+        .story-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .story-phases {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .phase {
+            padding: 0.5rem 1rem;
+            border: 2px solid;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .phase.conflict {
+            border-color: var(--pink);
+            color: var(--pink);
+        }
+
+        .phase.action {
+            border-color: var(--electric);
+            color: var(--electric);
+        }
+
+        .phase.result {
+            border-color: var(--white);
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: var(--pink);
+            color: var(--black);
+            text-align: center;
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: 'CONTACT';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(10rem, 30vw, 25rem);
+            font-weight: 900;
+            color: rgba(0,0,0,0.1);
+            white-space: nowrap;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            margin-bottom: 2rem;
+            line-height: 0.9;
+        }
+
+        .cta-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--pink);
+            padding: 2rem 4rem;
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.4); }
+            50% { box-shadow: 0 0 0 20px rgba(0,0,0,0); }
+        }
+
+        .cta-btn:hover {
+            background: var(--electric);
+            color: var(--black);
+            animation: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            padding: 4rem 0;
+            border-top: 10px solid var(--electric);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-brand {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--pink);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--electric);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copy {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .footer-warning {
+            color: var(--pink);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* NOISE OVERLAY */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* SHAPES */
+        .shape {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .shape-triangle {
+            width: 0;
+            height: 0;
+            border-left: 100px solid transparent;
+            border-right: 100px solid transparent;
+            border-bottom: 173px solid var(--pink);
+            opacity: 0.1;
+        }
+
+        .shape-circle {
+            width: 300px;
+            height: 300px;
+            border: 3px solid var(--electric);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Noise Overlay -->
+    <div class="noise"></div>
+
+    <!-- Marquee -->
+    <div class="marquee-container">
+        <div class="marquee">
+            E3 MARKETING • PERFORMANCE FIRST • NO BULLSHIT • AGGRESSIVE GROWTH • DATA DRIVEN • STAKQUE DIGITAL • E3 MARKETING • PERFORMANCE FIRST • NO BULLSHIT • AGGRESSIVE GROWTH • DATA DRIVEN • STAKQUE DIGITAL •
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">AW<span>CK</span></div>
+            <button class="menu-btn" onclick="alert('Navigation: Scroll down to explore')">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-bg-text top druk">AGGRESSIVE</div>
+        <div class="hero-bg-text bottom druk">TRANSPARENT</div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow mono">Founder, Stakque Digital</div>
+                <h1 class="hero-title druk">
+                    <span class="line"><span class="word">I DON'T</span></span>
+                    <span class="line"><span class="word">WANT YOUR</span></span>
+                    <span class="line"><span class="word glitch electric" data-text="RESPECT">MONEY</span></span>
+                </h1>
+                <p class="hero-subtitle mono">
+                    I want your results. Performance marketing without the poetry. E3 Marketing isn't changing the game—it's breaking the board.
+                </p>
+                <a href="#problem" class="hero-cta mono">
+                    ENTER IF YOU DARE
+                    <span style="font-size: 1.5rem;">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Strip -->
+    <div class="warning-strip flash mono">
+        WARNING: THIS WEBSITE CONTAINS BRUTAL HONESTY AND AGGRESSIVE TRUTHS
+    </div>
+
+    <!-- The Problem -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <span class="section-label mono">The Industry</span>
+            <h2 class="section-title druk">
+                YOUR AGENCY IS<br>
+                <span class="glitch" data-text="LYING">LYING</span> TO YOU
+            </h2>
+            
+            <div class="accusation druk">
+                <span class="highlight">REACH</span> OVER REVENUE<br>
+                <span class="highlight">VANITY</span> OVER PROFIT<br>
+                <span class="highlight">DECKS</span> OVER DATA
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3 class="mono">The Reach Trap</h3>
+                    <p>"We got you 2M impressions!" Impressions don't pay bills. Sales do. If your agency leads with reach metrics, they're hiding bad conversion rates.</p>
+                </div>
+                <div class="problem-card">
+                    <h3 class="mono">The Creative Complex</h3>
+                    <p>Months spent on "brand storytelling" while competitors eat your lunch. Beautiful campaigns that don't convert are just expensive art projects.</p>
+                </div>
+                <div class="problem-card">
+                    <h3 class="mono">The Black Box</h3>
+                    <p>"Our proprietary methodology." Translation: We don't want you to see how little we're actually doing. Transparency isn't optional—it's mandatory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E3 Method -->
+    <section class="method" id="method">
+        <div class="container">
+            <span class="section-label mono">The Framework</span>
+            <h2 class="section-title druk electric">
+                EMBEDDED.<br>
+                ESSENTIAL.<br>
+                ENGINEERED.
+            </h2>
+
+            <div class="method-panels">
+                <div class="method-panel">
+                    <div class="method-number druk">01</div>
+                    <h3 class="method-title druk electric">EMBEDDED</h3>
+                    <p class="method-desc mono">
+                        Your brand doesn't sit on the surface—it lives in the code, the culture, the experience. Embedded means built-in, not bolted-on. Every touchpoint carries your DNA.
+                    </p>
+                </div>
+
+                <div class="method-panel">
+                    <div class="method-number druk">02</div>
+                    <h3 class="method-title druk pink">ESSENTIAL</h3>
+                    <p class="method-desc mono">
+                        Strip away everything that doesn't matter. What's left is what people actually need. Essential is the ruthless prioritization that makes your product impossible to ignore.
+                    </p>
+                </div>
+
+                <div class="method-panel">
+                    <div class="method-number druk">03</div>
+                    <h3 class="method-title druk electric">ENGINEERED</h3>
+                    <p class="method-desc mono">
+                        Built with precision, tested against reality, optimized for outcomes. No guesswork. No fluff. Just systems that perform under pressure and scale without breaking.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- War Stories -->
+    <section class="war-stories" id="stories">
+        <div class="container">
+            <span class="section-label mono">Case Studies</span>
+            <h2 class="section-title druk">
+                WAR<br>
+                <span class="electric">STORIES</span>
+            </h2>
+
+            <div class="story-list">
+                <div class="story-item">
+                    <div class="story-meta">
+                        <span class="story-client">TechFlow SaaS</span>
+                        <span class="story-industry">B2B Software</span>
+                        <span class="story-result">+847%</span>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="druk">The Pivot That Broke The Budget</h3>
+                        <p class="mono">They were spending $50K/month on LinkedIn thought leadership with 0 ROI. We killed it all. Redirected to aggressive retargeting with brutal direct response copy. The board panicked. Then the revenue started rolling in.</p>
+                        <div class="story-phases">
+                            <span class="phase conflict mono">Conflict: Zero qualified leads</span>
+                            <span class="phase action mono">Action: Aggressive pivot</span>
+                            <span class="phase result mono">Result: 847% pipeline increase</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <div class="story-meta">
+                        <span class="story-client">Nova Retail</span>
+                        <span class="story-industry">D2C Fashion</span>
+                        <span class="story-result">$2.4M</span>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="druk">The Ad Account That Shouldn't Have Worked</h3>
+                        <p class="mono">Facebook banned their domain. Stripe flagged their account. Industry "experts" said scale was impossible. We built three new funnels in 48 hours, diversified traffic sources, and hit $2.4M in 90 days while everyone else was updating their media kits.</p>
+                        <div class="story-phases">
+                            <span class="phase conflict mono">Conflict: Platform bans</span>
+                            <span class="phase action mono">Action: Rapid diversification</span>
+                            <span class="phase result mono">Result: $2.4M in Q1</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="story-item">
+                    <div class="story-meta">
+                        <span class="story-client"> Apex Health</span>
+                        <span class="story-industry">Healthcare</span>
+                        <span class="story-result">-62%</span>
+                    </div>
+                    <div class="story-content">
+                        <h3 class="druk">The Campaign We Killed</h3>
+                        <p class="mono">Not every story is a win. We killed a $80K campaign after 2 weeks because the numbers didn't lie—it wasn't working. Cut losses. Pivoted hard. Saved the client $150K in wasted spend. Sometimes the best action is aggressive inaction.</p>
+                        <div class="story-phases">
+                            <span class="phase conflict mono">Conflict: Sinking campaign</span>
+                            <span class="phase action mono">Action: Ruthless kill</span>
+                            <span class="phase result mono">Result: $150K saved</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title druk">
+                    STOP<br>
+                    THINKING.<br>
+                    START<br>
+                    <span class="glitch" data-text="SCALING">SCALING</span>.
+                </h2>
+                <p class="cta-subtitle mono">
+                    I don't pitch. I don't do decks. I do results.<br>
+                    If you're ready for aggressive growth, I'm ready to deliver.
+                </p>
+                <a href="mailto:abdul@stakque.com" class="cta-btn mono">
+                    EMAIL ME NOW →
+                </a>
+                <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;" class="mono">
+                    Or don't. Your competitors are already calling.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-brand druk">
+                        ABDUL<br>WAJID <span class="electric">CK</span>
+                    </div>
+                    <p class="footer-tagline mono">
+                        Founder of Stakque Digital.<br>
+                        Enemy of mediocrity.<br>
+                        Friend of results.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title mono">Navigate</h4>
+                    <ul class="footer-links mono">
+                        <li><a href="#problem">The Problem</a></li>
+                        <li><a href="#method">E3 Method</a></li>
+                        <li><a href="#stories">War Stories</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title mono">Connect</h4>
+                    <ul class="footer-links mono">
+                        <li><a href="mailto:abdul@stakque.com">Email</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter/X</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy mono">© 2026 Abdul Wajid CK. All rights reserved.</span>
+                <span class="footer-warning mono flash">No bullshit zone</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // Story items fade in
+        const stories = document.querySelectorAll('.story-item');
+        
+        const storyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        stories.forEach(story => {
+            story.style.opacity = '0';
+            story.style.transform = 'translateY(50px)';
+            story.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            storyObserver.observe(story);
+        });
+
+        // Parallax effect on hero background
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroTexts = document.querySelectorAll('.hero-bg-text');
+            heroTexts.forEach((text, index) => {
+                const speed = index === 0 ? 0.5 : -0.3;
+                text.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Dynamic year
+        document.querySelector('.footer-copy').textContent = 
+            `© ${new Date().getFullYear()} Abdul Wajid CK. All rights reserved.`;
+    </script>
+</body>
+</html>
