@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abdulwajid.ck/sitemap.xml
+
+Disallow: /admin/
+Disallow: /private/
+Disallow: /draft/
